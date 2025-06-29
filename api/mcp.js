@@ -1,5 +1,4 @@
 export default function handler(req, res) {
-  // Always return the tools, no matter the method
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, LINK");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -32,5 +31,5 @@ export default function handler(req, res) {
     }
   ];
 
-  return res.status(200).json(tools);
+  res.status(200).json(tools);
 }
