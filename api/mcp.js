@@ -1,10 +1,7 @@
 export default function handler(req, res) {
-  if (req.method !== "GET" && req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
-
+  // Always return the tools, no matter the method
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, LINK");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Content-Type", "application/json");
 
@@ -35,5 +32,5 @@ export default function handler(req, res) {
     }
   ];
 
-  res.status(200).json(tools);
+  return res.status(200).json(tools);
 }
